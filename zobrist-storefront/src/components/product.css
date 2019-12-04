@@ -12,6 +12,11 @@
       grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
+.show_more_btn {
+  font-size: 18px;
+  margin-top:10px;
+}
+
 @media (max-width: 1023px) {
   .product-wrapper {
     -ms-grid-columns: 1fr 1fr 1fr;
