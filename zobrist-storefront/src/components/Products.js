@@ -19,7 +19,7 @@ export default class ProductListingPage extends React.Component {
 
     fetchProducts() {
         console.log("fetch products");
-      return axios.get(`http://localhost:3004/products?size=${this.state.size}&page=${this.state.page}`).then(data=> {
+      return axios.get(`http://localhost:3001/api/products/${this.state.page}/${this.state.size}`).then(data=> {
         console.log("products data",data);  
         this.setState({
             products: [...this.state.products, data]
@@ -37,8 +37,8 @@ export default class ProductListingPage extends React.Component {
             <p>{this.state.isFetching ? 'Fetching users...' : ''}</p>
             <div className="product-wrapper">
                 {this.state.products.length > 0 ?
-                   this.state.products[0].data.map((product)=> (
-                    <div className="tiles">
+                   this.state.products[0].data.result.map((product, index)=> (
+                    <div className="tiles" key={index}>
                         <div className="product-image-area">
                             <img src="./shoes.jpg" alt="product" />    
                         </div> 
