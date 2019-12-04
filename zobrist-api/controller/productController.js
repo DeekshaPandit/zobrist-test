@@ -7,9 +7,7 @@ module.exports.listProducts = function(req, res) {
     
     if(page && size) 
     {
-        console.log("page",page);
           axios.get(`http://localhost:3004/products?size=${size}&page=${page}`).then((data)=> {
-              console.log(typeof data);
              let result = data.data.slice(page * size, (page + 1) * size);
              res.status(200).send({result , message:'data fetched successfully'})
           }).catch((error)=> {
